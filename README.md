@@ -9,7 +9,7 @@ This api exposes `addFrame` function of `img-editor` lib
 File field name is: `file`
 
 ```bash
-curl --location --request POST 'http://<domain-name>/api/frame' \
+url --location --request POST 'http://<domain-name>/api/frame?paperWidth=4&paperHeight=6&color=%23222' \
 --form 'file=@"/test.jpg"'
 ```
 
