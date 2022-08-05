@@ -37,15 +37,18 @@ router.post(
     }
 
     //#endregion
-    
+
     const result = await addFrame(
       req.file.buffer,
       printPaperOptions,
       frameOptions
     );
 
+    // convert to base64 string
+    result.data[0] = result.data[0].toString("base64");
+
     if (result && result.errors.length === 0 && result.successful > 0)
-      res.status(200).json({ result });
+      res.status(200).json(result);
     else
       res
         .status(400)
