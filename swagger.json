@@ -1,0 +1,60 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Api Documentation",
+    "version": "v2"
+  },
+  "paths": {
+    "/api/frame": {
+      "post": {
+        "summary": "Add frame to the image",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "paperWidth",
+            "in": "query",
+            "required": false,
+            "description": "Width of the printing paper",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "paperHeight",
+            "in": "query",
+            "required": false,
+            "description": "Height of the printing paper",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "color",
+            "in": "query",
+            "required": false,
+            "description": "Color of the frame i.e. '#111'",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "file",
+            "in": "body",
+            "required": true,
+            "description": "Image buffer",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Image was processed successfully" },
+          "400": {
+            "description": "Either image processing failed or query params were incorrect"
+          }
+        }
+      }
+    }
+  }
+}
